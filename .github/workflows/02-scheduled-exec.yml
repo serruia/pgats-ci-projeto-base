@@ -1,7 +1,7 @@
 name: 'Nível 2 - Execução agendada'
 on:
   schedule:
-    - cron: '59 19 * * *'
+    - cron: '15 16 * * *'
 
 jobs:
   e2e-tests:
