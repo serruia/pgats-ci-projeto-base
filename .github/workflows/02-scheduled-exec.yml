@@ -1,0 +1,31 @@
+name: 'Nível 02 - Execução agendada'
+# triggers ou gatilhos de execucao
+# Gatilho de execução agendada por períodos definidos no repositório = schedule
+on:
+  schedule:
+    - cron: '20 19 * * 6'
+
+jobs:
+  
+  e2e-tests:
+    runs-on: ['ubuntu-latest']
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalando Yarn
+        run: npm install -g yarn
+
+      - name: Instalando dependências
+        run: yarn
+
+      - name: Instalando Playwright
+        run: yarn playwright install --with-deps
+
+      - name: Testes E2E (end-to-end)
+        run: yarn run e2e
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: relatorio-de-testes
+          path: ./playwright-report
