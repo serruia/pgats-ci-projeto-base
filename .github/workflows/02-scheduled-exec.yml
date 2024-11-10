@@ -1,9 +1,7 @@
-name: 'Nível 02 - Execução agendada'
-# triggers ou gatilhos de execucao
-# Gatilho de execução agendada por períodos definidos no repositório = schedule
+name: 'Nível 2 - Execução agendada'
 on:
   schedule:
-    - cron: '20 19 * * 6'
+    - cron: '22 09 * * 6'
 
 jobs:
   
