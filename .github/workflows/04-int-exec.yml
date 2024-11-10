@@ -29,7 +29,7 @@ jobs:
       - name: Instalando dependências
         run: yarn
 
-      - name: Testes Unitários
+      - name: Testes de Unidade
         run: yarn run test
 
   e2e-tests:
@@ -47,7 +47,7 @@ jobs:
       - name: Instalando Playwright
         run: yarn playwright install
 
-      - name: Subir aplicacao
+      - name: Subir aplicação local
         run: yarn start &
 
       - name: Testes E2E (end-to-end)
@@ -66,4 +66,4 @@ jobs:
     needs: [e2e-tests]
     steps:
       - name: Deploy
-        run: echo "step Deploy"
+        run: echo "step deploy"
