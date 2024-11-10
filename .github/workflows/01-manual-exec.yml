@@ -1,31 +1,27 @@
 # CI de nível 1 - disparo manual a partir de 1 clique
-
 name: 'Nível 1 - Execução manual'
 
-#triggers de execução
-    # gatilho de execução manual = workflow_dispatch
-
+# gatilho de execução manual
 on:
-    workflow_dispatch:
-
+  workflow_dispatch:
 
 jobs:
-
-    #descrição dos jobs
-    e2-tests:
-
-    #máquina que o job vai executar
-    runs-on: ["ubuntu-latest"]
+  e2-tests:
+    # máquina onde o job vai ser executado
+    runs-on: ubuntu-latest
 
     # passo a passo das ações do job
     steps:
+      - uses: actions/checkout@v4
+      
+      - name: Instalando Yarn
+        run: npm install -g yarn
 
-    - uses: actions/checkout@v4
-    - name: Instalando Yarn
-      run: npm install -g yarn
-    - name: Instalando dependências
-      run: yarn
-    - name: Instalando Playwright
-      run: yarn playwright install
-    - name: testes e2e
-      run: yarn run e2e
+      - name: Instalando dependências
+        run: yarn
+
+      - name: Instalando Playwright
+        run: yarn playwright install
+
+      - name: Executando testes e2e
+        run: yarn run e2e
