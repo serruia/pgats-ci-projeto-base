@@ -15,7 +15,7 @@ jobs:
     e2-tests:
 
     #máquina que o job vai executar
-    runs-on: ['ubuntu-latest']
+    runs-on: ["ubuntu-latest"]
 
     # passo a passo das ações do job
     steps:
